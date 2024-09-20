@@ -1,0 +1,101 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+$text: #244047;
+$links: #BA5624;
+
+//@import "minima";
+body {
+    margin: 0;
+    padding: 0;
+    font-family: dinosaur;
+    color: $text;
+    font-size: 1.5em;
+}
+
+a {
+    position: relative;
+    transition: color 0.25s;
+    text-decoration: none;
+    color: $text;
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 2px;
+        border-bottom: 0.125em solid $links;
+        animation-name: borderIn;
+        animation-duration: 0.25s;
+        animation-fill-mode: forwards;
+    }
+
+    &:hover:after {
+        animation-name: borderOut;
+        animation-duration: 0.25s;
+        animation-fill-mode: forwards;
+    }
+}
+
+main.page-splash {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4em;
+
+    @media screen and (max-width:720px) {
+        padding: 2em;
+    }
+
+    .wrapper {
+        max-width: 35em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+
+        h1 {
+            font-weight: 400;
+            display: none;
+            //text-transform: lowercase;
+        }
+
+        .logo svg {
+            width: 180px;
+            fill: $text;
+            margin-bottom: 1em;
+        }
+
+    }
+
+}
+
+@keyframes borderIn {
+    0% {
+      left: 0;
+      right: 100%;
+    }
+    100% {
+      left: 0;
+      right: 0;
+    }
+  }
+@keyframes borderOut {
+0% {
+    left: 0;
+    right: 0;
+}
+100% {
+    left: 100%;
+    right: 0;
+}
+}
