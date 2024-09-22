@@ -14,11 +14,17 @@ body {
     font-size: 1.5em;
 }
 
+p {
+    text-align: center;
+    line-height: 1.25;
+}
+
 a {
     position: relative;
     transition: color 0.25s;
     text-decoration: none;
     color: $text;
+    white-space: nowrap;
 
     &:after {
         content: "";
@@ -50,18 +56,19 @@ main.page-splash {
     justify-content: center;
     align-items: center;
     padding: 4em;
+    //position: relative;
+    overflow: hidden;
 
     @media screen and (max-width:720px) {
         padding: 2em;
     }
 
     .wrapper {
-        max-width: 35em;
+        max-width: 33.33em;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    
 
         h1 {
             font-weight: 400;
@@ -69,10 +76,79 @@ main.page-splash {
             //text-transform: lowercase;
         }
 
-        .logo svg {
-            width: 180px;
-            fill: $text;
-            margin-bottom: 1em;
+        p {
+            z-index: 2;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .logo {
+
+            $iso_diagonal: 19px;
+            $iso_width: 42.932px;
+            $iso_height: 21.466px;
+            $iso_angle: 26.565deg;
+            $iso_angle_reversed: 180 - $iso_angle;
+            $iso_colour_primary: fade-out($links,0.9);
+            $iso_colour_secondary: fade-out($links,0.9);
+
+            position: relative;
+            z-index: 1;
+            
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -1000px;
+                margin-top: -500px;
+                width: 2000px;
+                height: 1000px;
+                background: 
+                    repeating-linear-gradient($iso_angle, transparent 0%, transparent calc( #{$iso_diagonal * 5} - 2px ), $iso_colour_primary $iso_diagonal * 5),
+                    repeating-linear-gradient($iso_angle, transparent 0%, transparent calc( #{$iso_diagonal} - 1px ), $iso_colour_secondary $iso_diagonal),
+
+                    repeating-linear-gradient($iso_angle_reversed, transparent 0%, transparent calc( #{$iso_diagonal * 5} - 2px ), $iso_colour_primary $iso_diagonal * 5),
+                    repeating-linear-gradient($iso_angle_reversed, transparent 0%, transparent calc( #{$iso_diagonal} - 1px ), $iso_colour_secondary $iso_diagonal)
+
+                    //repeating-linear-gradient(45deg, transparent 0%, transparent calc( #{$iso_diagonal} - 2px ), $iso_colour_secondary $iso_diagonal)
+                    ;
+                background-position: -18.5px 11.5px;
+                z-index: 1;;
+            }
+
+            svg {
+                //width: 180px;
+                width: $iso_width * 5;
+                fill: $text;
+                margin-bottom: 1em;
+                position: relative;
+                z-index: 2;
+
+                &:first-child {
+                    position: absolute;
+                    fill: #e6e6e6;
+                }
+
+                &:nth-child(2) {
+                    position: relative;
+                    top: 0;
+                    transition: top 0.25s;
+
+                    &:hover {
+                        top: -10px;
+                    }
+                }
+            }
+
+            &:after {
+                content: '';
+                position: fixed;
+                top: 0; bottom: 0; left: 0; right: 0;
+                background: radial-gradient(transparent 0%, #fff 100%);
+                z-index: 1;
+            }
+            
         }
 
     }
