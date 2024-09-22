@@ -11,7 +11,7 @@ body {
     padding: 0;
     font-family: dinosaur;
     color: $text;
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 p {
@@ -64,7 +64,7 @@ main.page-splash {
     }
 
     .wrapper {
-        max-width: 33.33em;
+        max-width: 740px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -95,6 +95,8 @@ main.page-splash {
             position: relative;
             z-index: 1;
             
+            margin-bottom: 2em;
+            
             &:before {
                 content: '';
                 position: absolute;
@@ -121,7 +123,6 @@ main.page-splash {
                 //width: 180px;
                 width: $iso_width * 5;
                 fill: $text;
-                margin-bottom: 1em;
                 position: relative;
                 z-index: 2;
 
