@@ -91,8 +91,8 @@ main.page-splash {
             $iso_angle: 26.565deg;
             $iso_angle_reversed: 180 - $iso_angle;
             $iso_line_weight_primary: 1px;
-            $iso_line_weight_secondary: 2px;
-            $iso_colour_primary: mix($links, #fff, 8%);
+            $iso_line_weight_secondary: 1px;
+            $iso_colour_primary: mix($links, #fff, 10%);
             $iso_colour_secondary: $iso_colour_primary;
 
             position: relative;
