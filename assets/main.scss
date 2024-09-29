@@ -90,9 +90,10 @@ main.page-splash {
             $iso_height: $iso_base * 2;
             $iso_angle: 26.565deg;
             $iso_angle_reversed: 180 - $iso_angle;
-            $iso_colour_primary: fade-out($links,0.9);
-            //$iso_colour_secondary: $text;
-            $iso_colour_secondary: fade-out($links,0.9);
+            $iso_line_weight_primary: 1px;
+            $iso_line_weight_secondary: 2px;
+            $iso_colour_primary: mix($links, #fff, 8%);
+            $iso_colour_secondary: $iso_colour_primary;
 
             position: relative;
             z-index: 1;
@@ -109,11 +110,11 @@ main.page-splash {
                 width: 2000px;
                 height: 1000px;
                 background: 
-                    repeating-linear-gradient($iso_angle, transparent 0, transparent calc( #{$iso_diagonal * 5} - 2px ), $iso_colour_primary $iso_diagonal * 5),
-                    repeating-linear-gradient($iso_angle, transparent 0, transparent calc( #{$iso_diagonal} - 1px ), $iso_colour_secondary $iso_diagonal),
+                    repeating-linear-gradient($iso_angle, transparent 0, transparent calc( #{$iso_diagonal * 5} - #{$iso_line_weight_secondary} ), $iso_colour_primary calc( #{$iso_diagonal * 5} - #{$iso_line_weight_secondary} ), $iso_colour_primary $iso_diagonal * 5),
+                    repeating-linear-gradient($iso_angle, transparent 0, transparent calc( #{$iso_diagonal} - #{$iso_line_weight_primary} ), $iso_colour_secondary $iso_diagonal),
 
-                    repeating-linear-gradient($iso_angle_reversed, transparent 0, transparent calc( #{$iso_diagonal * 5} - 2px ), $iso_colour_primary $iso_diagonal * 5),
-                    repeating-linear-gradient($iso_angle_reversed, transparent 0, transparent calc( #{$iso_diagonal} - 1px ), $iso_colour_secondary $iso_diagonal)
+                    repeating-linear-gradient($iso_angle_reversed, transparent 0, transparent calc( #{$iso_diagonal * 5} - #{$iso_line_weight_secondary} ), $iso_colour_primary calc( #{$iso_diagonal * 5} - #{$iso_line_weight_secondary} ), $iso_colour_primary $iso_diagonal * 5),
+                    repeating-linear-gradient($iso_angle_reversed, transparent 0, transparent calc( #{$iso_diagonal} - #{$iso_line_weight_primary} ), $iso_colour_secondary $iso_diagonal)
 
                     //repeating-linear-gradient(45deg, transparent 0%, transparent calc( #{$iso_diagonal} - 2px ), $iso_colour_secondary $iso_diagonal)
                     ;
@@ -130,12 +131,12 @@ main.page-splash {
 
                 .light {
                     fill: transparent;
-                    transition: fill 0.25s;
+                    //transition: fill 0.25s;
                 }
 
                 &:first-child {
                     position: absolute;
-                    fill: #e6e6e6;
+                    fill: $iso_colour_primary;
                 }
 
                 &:nth-child(2) {
@@ -146,9 +147,9 @@ main.page-splash {
                     &:hover {
                         top: -10px;
 
-                        .light {
+                        /*.light {
                             fill: $links;
-                        }
+                        }*/
                     }
                 }
             }
