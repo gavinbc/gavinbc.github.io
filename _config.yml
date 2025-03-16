@@ -21,7 +21,7 @@
 title: Gavin Coulson
 email: me@gavincoulson.ca
 description: >- # this means to ignore newlines until "baseurl:"
-  Just a guy building things on the shores of the Salish Sea.
+  Web developer from the Sunshine Coast of BC.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 typekit: wyu5dwo
